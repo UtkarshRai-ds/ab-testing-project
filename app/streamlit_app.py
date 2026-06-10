@@ -258,7 +258,7 @@ with tab3:
         margin=dict(l=40, r=40, t=40, b=40)
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
     st.metric(
         f"N per group at MDE = {highlight_mde*100:.1f}pp",

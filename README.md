@@ -2,8 +2,8 @@
 
 End-to-end experiment design and analysis — from power analysis to business recommendation.
 
-## Live Demo
-[A/B Test Toolkit](your-deployed-link-here)
+## Live
+[A/B Test Toolkit] https://ab-testing-project0.streamlit.app/
 
 ## Project Summary
 This project demonstrates the full lifecycle of a statistically rigorous A/B test. Built in two phases: Phase 1 validates the statistical pipeline against simulated data with a known ground truth. Phase 2 applies the same pipeline to a real e-commerce dataset with unknown outcomes.

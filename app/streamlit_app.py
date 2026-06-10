@@ -9,6 +9,61 @@ st.set_page_config(
     layout="centered"
 )
 
+# ── Intro section ─────────────────────────────────────────────────────────────
+with st.expander("📋 About this project", expanded=True):
+    col_l, col_r = st.columns([3, 2])
+
+    with col_l:
+        st.markdown("""
+### What this project demonstrates
+This toolkit accompanies a full A/B testing project built in two phases:
+
+**Phase 1 — Simulation:** A pipeline validated against data with a known 
+ground truth. Power analysis computed sample size, 1,000 experiments 
+verified the statistical guarantee empirically, and a peeking simulation 
+showed false positive rate tripling under early stopping.
+
+**Phase 2 — Real data:** The same pipeline applied to a real e-commerce 
+A/B test (~290k rows, Kaggle). Data quality issues surfaced and cleaned 
+before any analysis ran.
+        """)
+
+    with col_r:
+        st.markdown("### Key Findings")
+        st.success("777/1,000 simulated experiments detected a genuine 2% lift matches theoretical 80% power")
+        st.error("Underpowered test missed the same lift: p=0.27 at half sample size (Type II error)")
+        st.warning("Peeking tripled false positive rate: 14.7% vs 5.1%")
+        st.info("Real dataset: 32x overpowered, p=0.19 wich makes effect negligible, not just undetectable")
+
+    st.divider()
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.markdown("""
+**Limitations**
+- Simulation uses simplified binomial model
+- MDE of 2pp assumed for Phase 2, not derived from revenue model
+- No novelty effect correction applied
+- Frequentist only and no sequential testing
+        """)
+    with col2:
+        st.markdown("""
+**Future Work**
+- Bayesian A/B testing alongside frequentist
+- Sequential testing (SPRT) for valid early stopping
+- Segment analysis (mobile vs desktop, new vs returning)
+- Multi-metric testing with Bonferroni correction
+- Uplift modelling on Criteo dataset
+        """)
+
+    st.markdown("""
+---
+📓 [View full notebook on GitHub](https://github.com/UtkarshRai-ds/ab-testing-project) · 
+Built with Python · statsmodels · scipy · plotly · streamlit
+    """)
+
+st.divider()
+
 st.title("A/B Test Toolkit")
 st.caption("Power analysis · Results analyzer · Power curve")
 

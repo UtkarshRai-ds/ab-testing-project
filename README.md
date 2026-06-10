@@ -49,5 +49,8 @@ Phase 2 uses the E-commerce A/B Test dataset from Kaggle (https://www.kaggle.com
 - Uplift modelling: apply the Criteo Uplift dataset to model individual treatment effect heterogeneity , identifying which users benefit most from a change rather than estimating an average effect
 - Streamlit peeking demo: add an interactive simulation showing false positive rate climbing in real time as the user adjusts the number of interim checks
 
+## Conclusion
+This project started with a simple question: how do you know if a change actually works? The answer turned out to be more nuanced than running a single test and checking a p-value. Good experimentation means deciding what you care about before collecting data, understanding that statistical significance and practical significance are two different things, and knowing that how you collect and inspect data is just as important as how you analyse it. The real dataset result was not significant despite 145,000 users per group which makes it arguably the most valuable finding. 
+
 ## Stack
 Python · statsmodels · scipy · numpy · pandas · plotly · streamlit · Jupyter

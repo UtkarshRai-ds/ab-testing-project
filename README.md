@@ -9,9 +9,9 @@ End-to-end experiment design and analysis — from power analysis to business re
 This project demonstrates the full lifecycle of a statistically rigorous A/B test. Built in two phases: Phase 1 validates the statistical pipeline against simulated data with a known ground truth. Phase 2 applies the same pipeline to a real e-commerce dataset with unknown outcomes.
 
 ## Key Findings
-- Empirical power matched theoretical: 777/1,000 simulated experiments detected a genuine 2% lift (theoretical: 80%)
-- Underpowered test missed a real effect: same 2% lift returned p=0.27 at half the sample size (Type II error)
-- Peeking tripled false positive rate: 14.7% vs 5.1% with five interim checks on null data
+- Empirical power matched theoretical: 777/1,000 simulated experiments detected a genuine 2% lift (theoretical: 80%).
+- Underpowered test missed a real effect: same 2% lift returned p=0.27 at half the sample size (Type II error).
+- Peeking tripled false positive rate: 14.7% vs 5.1% with five interim checks on null data.
 - Real dataset: experiment was 32x overpowered yet returned p=0.19 i.e. the effect was genuinely negligible and not just undetectable.
 
 ## Project Structure
@@ -53,7 +53,7 @@ Phase 2 uses the E-commerce A/B Test dataset from Kaggle (https://www.kaggle.com
 - Bayesian A/B testing: implement a Beta-Binomial conjugate model alongside the frequentist pipeline and compare conclusions particularly on the real dataset where the frequentist result was borderline.
 - Sequential testing: add a SPRT (Sequential Probability Ratio Test) implementation that allows statistically valid early stopping, directly addressing the peeking problem demonstrated in Phase 1.
 - Segment analysis: break down results by user segment (new vs returning, mobile vs desktop, time of day) to surface heterogeneous treatment effects, the case where overall significance masks harm to a subgroup.
-- Multi-metric testing: extend beyond conversion rate to handle multiple metrics simultaneously with appropriate corrections (Bonferroni, Benjamini-Hochberg) to control family-wise error rate
+- Multi-metric testing: extend beyond conversion rate to handle multiple metrics simultaneously with appropriate corrections (Bonferroni, Benjamini-Hochberg) to control family-wise error rate.
 - Uplift modelling: apply the Criteo Uplift dataset to model individual treatment effect heterogeneity , identifying which users benefit most from a change rather than estimating an average effect.
 - Streamlit peeking demo: add an interactive simulation showing false positive rate climbing in real time as the user adjusts the number of interim checks.
 

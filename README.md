@@ -15,11 +15,19 @@ This project demonstrates the full lifecycle of a statistically rigorous A/B tes
 - Real dataset: experiment was 32x overpowered yet returned p=0.19 i.e. the effect was genuinely negligible and not just undetectable.
 
 ## Project Structure
+
+```
 ab-testing-project/
-├── notebook/ab_analysis.ipynb   # Full analysis: simulation + real data
-├── app/streamlit_app.py         # Interactive toolkit: calculator, analyzer, power curve
-├── data/                        # Dataset not committed — see Data section below
-└── requirements.txt
+├── notebook/
+│   └── ab_analysis.ipynb      # Full narrative analysis:         simulation + real data
+├── app/
+│   └── streamlit_app.py       # Interactive toolkit: calculator, analyzer, power curve
+├── data/
+│   └── ab_data.csv            # Dataset (not committed — see Data section below)
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
 
 ## Setup
 conda create -n ab-testing python=3.11 -y
@@ -42,12 +50,12 @@ Phase 2 uses the E-commerce A/B Test dataset from Kaggle (https://www.kaggle.com
 - Sequential testing (SPRT, Bayesian methods) is not implemented. The frequentist framework used here requires full sample collection before inference.
 
 ## Future Work
-- Bayesian A/B testing: implement a Beta-Binomial conjugate model alongside the frequentist pipeline and compare conclusions particularly on the real dataset where the frequentist result was borderline
-- Sequential testing: add a SPRT (Sequential Probability Ratio Test) implementation that allows statistically valid early stopping, directly addressing the peeking problem demonstrated in Phase 1
-- Segment analysis: break down results by user segment (new vs returning, mobile vs desktop, time of day) to surface heterogeneous treatment effects, the case where overall significance masks harm to a subgroup
+- Bayesian A/B testing: implement a Beta-Binomial conjugate model alongside the frequentist pipeline and compare conclusions particularly on the real dataset where the frequentist result was borderline.
+- Sequential testing: add a SPRT (Sequential Probability Ratio Test) implementation that allows statistically valid early stopping, directly addressing the peeking problem demonstrated in Phase 1.
+- Segment analysis: break down results by user segment (new vs returning, mobile vs desktop, time of day) to surface heterogeneous treatment effects, the case where overall significance masks harm to a subgroup.
 - Multi-metric testing: extend beyond conversion rate to handle multiple metrics simultaneously with appropriate corrections (Bonferroni, Benjamini-Hochberg) to control family-wise error rate
-- Uplift modelling: apply the Criteo Uplift dataset to model individual treatment effect heterogeneity , identifying which users benefit most from a change rather than estimating an average effect
-- Streamlit peeking demo: add an interactive simulation showing false positive rate climbing in real time as the user adjusts the number of interim checks
+- Uplift modelling: apply the Criteo Uplift dataset to model individual treatment effect heterogeneity , identifying which users benefit most from a change rather than estimating an average effect.
+- Streamlit peeking demo: add an interactive simulation showing false positive rate climbing in real time as the user adjusts the number of interim checks.
 
 ## Conclusion
 This project started with a simple question: how do you know if a change actually works? The answer turned out to be more nuanced than running a single test and checking a p-value. Good experimentation means deciding what you care about before collecting data, understanding that statistical significance and practical significance are two different things, and knowing that how you collect and inspect data is just as important as how you analyse it. The real dataset result was not significant despite 145,000 users per group which makes it arguably the most valuable finding. 

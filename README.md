@@ -1,6 +1,6 @@
 # A/B Testing Project
 
-End-to-end experiment design and analysis — from power analysis to business recommendation.
+End-to-end experiment design and analysis from power analysis to business recommendation.
 
 ## Live
 [A/B Test Toolkit] https://ab-testing-project0.streamlit.app/
